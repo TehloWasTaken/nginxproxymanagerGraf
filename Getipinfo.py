@@ -34,6 +34,7 @@ print (Long)
 print (Lat)
 print (ISO)
 print (IP)
+print (Domain)
 reader.close()
 
 
@@ -47,8 +48,6 @@ import os
 
 npmhome = "/root/.config/NPMGRAF"
 npmhome = os.getenv('NPMGRAF_HOME')
-ifuser = os.getenv('INFLUX_USER')
-ifpass = os.getenv('INFLUX_PW')
 ifdb   = os.getenv('INFLUX_DB')
 ifhost = os.getenv('INFLUX_HOST')
 ifport = os.getenv('INFLUX_PORT')
@@ -91,7 +90,7 @@ body = [
 ]
 
 # connect to influx
-ifclient = InfluxDBClient(ifhost,ifport,ifuser,ifpass,ifdb)
+ifclient = InfluxDBClient(ifhost,ifport,ifdb)
 
 # write the measurement
 ifclient.write_points(body)
